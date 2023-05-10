@@ -1,6 +1,10 @@
 import axios from "axios";
 import { INotificationClient } from "./types/client.type";
-import { NotificationConfig, SendEmailDto } from "./types/common";
+import {
+  NotificationConfig,
+  SendEmailDto,
+  defaultNotificationConfig,
+} from "./types/common";
 import {
   BasicResponse,
   ResponseStatus,
@@ -16,7 +20,13 @@ export class NotificationClient implements INotificationClient {
   private baseURL: string;
 
   constructor(config: NotificationConfig) {
-    this.baseURL = `${config.protocol}://${config.host}:${config.port}/${config.basePath}`;
+    const notificationConfig = {
+      ...defaultNotificationConfig,
+      ...config,
+    };
+    const { protocol, host, port, basePath } = notificationConfig;
+
+    this.baseURL = `${protocol}://${host}:${port}/${basePath}`;
   }
 
   async ping(): Promise<StepResult> {

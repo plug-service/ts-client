@@ -12,9 +12,17 @@ export interface SendEmailDto {
 }
 
 export interface NotificationConfig {
-  transport: NotificationTransports;
+  transport?: NotificationTransports;
   host: string;
   port: number;
-  basePath: string;
-  protocol: string;
+  basePath?: string;
+  protocol?: "http" | "https";
 }
+
+export const defaultNotificationConfig: NotificationConfig = {
+  transport: NotificationTransports.HTTP,
+  host: "localhost",
+  port: 3000,
+  basePath: "/api/v1",
+  protocol: "http",
+};
