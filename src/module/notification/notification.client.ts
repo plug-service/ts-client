@@ -26,6 +26,7 @@ export class NotificationClient implements INotificationClient {
     };
     const { protocol, host, port, basePath } = notificationConfig;
 
+
     this.baseURL = `${protocol}://${host}:${port}${basePath}`;
   }
 

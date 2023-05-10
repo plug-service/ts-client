@@ -16,7 +16,7 @@ export interface NotificationConfig {
   host: string;
   port: number;
   basePath?: string;
-  protocol?: string;
+  protocol?: "http" | "https";
 }
 
 export const defaultNotificationConfig: NotificationConfig = {
