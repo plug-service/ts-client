@@ -26,15 +26,24 @@ export class NotificationClient implements INotificationClient {
     };
     const { protocol, host, port, basePath } = notificationConfig;
 
-    this.baseURL = `${protocol}://${host}:${port}/${basePath}`;
+
+    this.baseURL = `${protocol}://${host}:${port}${basePath}`;
   }
 
   async ping(): Promise<StepResult> {
+    const randomMessage = Math.random().toString(36).substring(7);
     const response = await axios.get<BasicResponse>(
-      `${this.baseURL}${ENDPOINTS.PING}`
+      `${this.baseURL}${ENDPOINTS.PING}`,
+      {
+        params: {
+          message: randomMessage,
+        },
+      }
     );
     return {
-      isSuccess: response.data.status === ResponseStatus.SUCCESS,
+      isSuccess:
+        response.data.status === ResponseStatus.SUCCESS &&
+        response.data.data === randomMessage,
     };
   }
 
@@ -50,6 +59,6 @@ export class NotificationClient implements INotificationClient {
         },
       }
     );
-    return response;
+    return response.data;
   }
 }
