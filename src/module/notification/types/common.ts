@@ -18,3 +18,11 @@ export interface NotificationConfig {
   basePath: string;
   protocol: string;
 }
+
+export const defaultNotificationConfig: NotificationConfig = {
+  transport: NotificationTransports.HTTP,
+  host: "localhost",
+  port: 3000,
+  basePath: "/v1",
+  protocol: "http",
+};
