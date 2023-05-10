@@ -1,0 +1,26 @@
+{
+  "name": "plug-service-client",
+  "version": "1.0.0",
+  "description": "Client library for using Plug Service",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/plug-service/ts-client.git"
+  },
+  "keywords": [
+    "plug-service",
+    "plug-service-client"
+  ],
+  "author": "zingfeng",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/plug-service/ts-client/issues"
+  },
+  "homepage": "https://github.com/plug-service/ts-client#readme",
+  "dependencies": {
+    "axios": "^1.4.0"
+  }
+}
