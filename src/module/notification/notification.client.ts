@@ -10,6 +10,7 @@ import {
   ResponseStatus,
   StepResult,
 } from "../base/types/common";
+import { makeLogger } from "../logger/logger";
 
 const ENDPOINTS = {
   PING: "/common/ping",
@@ -18,15 +19,16 @@ const ENDPOINTS = {
 
 export class NotificationClient implements INotificationClient {
   private baseURL: string;
+  private logger;
 
   constructor(config: NotificationConfig) {
     const notificationConfig = {
       ...defaultNotificationConfig,
       ...config,
     };
-    const { protocol, host, port, basePath } = notificationConfig;
+    const { protocol, host, port, basePath, logLevel } = notificationConfig;
 
-
+    this.logger = makeLogger(logLevel);
     this.baseURL = `${protocol}://${host}:${port}${basePath}`;
   }
 
@@ -40,6 +42,7 @@ export class NotificationClient implements INotificationClient {
         },
       }
     );
+    this.logger.debug(response.data);
     return {
       isSuccess:
         response.data.status === ResponseStatus.SUCCESS &&
@@ -47,7 +50,7 @@ export class NotificationClient implements INotificationClient {
     };
   }
 
-  async sendGmail(sendEmailDto: SendEmailDto): Promise<BasicResponse> {
+  async sendByGmail(sendEmailDto: SendEmailDto): Promise<BasicResponse> {
     const response = await axios.post<BasicResponse>(
       `${this.baseURL}${ENDPOINTS.SEND_GMAIL}`,
       {
@@ -59,6 +62,7 @@ export class NotificationClient implements INotificationClient {
         },
       }
     );
+    this.logger.debug(response.data);
     return response.data;
   }
 }

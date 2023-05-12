@@ -1,3 +1,5 @@
+import { LOG_LEVEL } from "../../logger";
+
 export enum NotificationTransports {
   HTTP = "http",
 }
@@ -17,6 +19,7 @@ export interface NotificationConfig {
   port: number;
   basePath?: string;
   protocol?: "http" | "https";
+  logLevel?: LOG_LEVEL;
 }
 
 export const defaultNotificationConfig: NotificationConfig = {
@@ -25,4 +28,5 @@ export const defaultNotificationConfig: NotificationConfig = {
   port: 3000,
   basePath: "/v1",
   protocol: "http",
+  logLevel: LOG_LEVEL.INFO,
 };

@@ -1,5 +1,5 @@
-import { ResponseStatus } from "src/module/base/types/common";
-import { NotificationClient } from "../../index";
+import { ResponseStatus } from "../../src/module/base";
+import { NotificationClient } from "../../src/module/notification";
 
 const test = async () => {
   console.log(`🚀 Start testing module notification`);
@@ -17,7 +17,7 @@ const test = async () => {
     return;
   }
 
-  const sendGmailResult = await client.sendGmail({
+  const sendGmailResult = await client.sendByGmail({
     fromName: "Archery developer",
     fromEmail: "support.ads-pro.site",
     toName: "Archery developer's friend",
