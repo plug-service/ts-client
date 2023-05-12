@@ -50,7 +50,7 @@ export class NotificationClient implements INotificationClient {
     };
   }
 
-  async sendGmail(sendEmailDto: SendEmailDto): Promise<BasicResponse> {
+  async sendByGmail(sendEmailDto: SendEmailDto): Promise<BasicResponse> {
     const response = await axios.post<BasicResponse>(
       `${this.baseURL}${ENDPOINTS.SEND_GMAIL}`,
       {

@@ -17,7 +17,7 @@ const test = async () => {
     return;
   }
 
-  const sendGmailResult = await client.sendGmail({
+  const sendGmailResult = await client.sendByGmail({
     fromName: "Archery developer",
     fromEmail: "support.ads-pro.site",
     toName: "Archery developer's friend",
