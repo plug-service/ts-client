@@ -1,9 +1,10 @@
 {
   "name": "plug-service-client",
-  "version": "1.0.1",
+  "version": "1.2.1",
   "description": "Client library for using Plug Service",
   "main": "dist/index.js",
   "scripts": {
+    "dev": "tsc --build",
     "build": "tsc --build tsconfig.build.json",
     "clean": "tsc --build --clean",
     "test": "echo \"Error: no test specified\" && exit 1"

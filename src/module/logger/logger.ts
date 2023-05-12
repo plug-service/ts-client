@@ -15,7 +15,7 @@ export enum LOG_LEVEL {
  * @param logLevel LOG_LEVEL maximum level of messages that should log, defaults to LOG_LEVEL.DEBUG
  * @returns
  */
-const logger = (logLevel?: LOG_LEVEL) =>
+export const makeLogger = (logLevel?: LOG_LEVEL) =>
   createLogger({
     level: logLevel || LOG_LEVEL.DEBUG,
     transports: [new transports.Console()],
@@ -27,5 +27,3 @@ const logger = (logLevel?: LOG_LEVEL) =>
       })
     ),
   });
-
-export default logger;

@@ -1,4 +1,4 @@
-import { LOG_LEVEL } from "src/module/logger/logger";
+import { LOG_LEVEL } from "../../logger";
 
 export enum NotificationTransports {
   HTTP = "http",

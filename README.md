@@ -51,7 +51,7 @@ const levels = {
 
 ## Test
 
-`npm run build`
+`npm run dev`
 
 For example, to test email module
 `node .\dist\test\notification\email.test.js`

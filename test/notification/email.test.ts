@@ -1,5 +1,5 @@
-import { ResponseStatus } from "src/module/base/types/common";
-import { NotificationClient } from "../../index";
+import { ResponseStatus } from "../../src/module/base";
+import { NotificationClient } from "../../src/module/notification";
 
 const test = async () => {
   console.log(`🚀 Start testing module notification`);

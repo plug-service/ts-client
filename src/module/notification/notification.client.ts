@@ -10,7 +10,7 @@ import {
   ResponseStatus,
   StepResult,
 } from "../base/types/common";
-import createLogger from "../logger/logger";
+import { makeLogger } from "../logger/logger";
 
 const ENDPOINTS = {
   PING: "/common/ping",
@@ -28,7 +28,7 @@ export class NotificationClient implements INotificationClient {
     };
     const { protocol, host, port, basePath, logLevel } = notificationConfig;
 
-    this.logger = createLogger(logLevel);
+    this.logger = makeLogger(logLevel);
     this.baseURL = `${protocol}://${host}:${port}${basePath}`;
   }
 
