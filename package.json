@@ -2,7 +2,7 @@
   "name": "plug-service-client",
   "version": "1.0.0",
   "description": "Client library for using Plug Service",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "build": "tsc --build",
     "clean": "tsc --build --clean",
