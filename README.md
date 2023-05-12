@@ -11,4 +11,6 @@ or
 
 ## Publish 
 
+`npm run build`
+
 `npm publish`
